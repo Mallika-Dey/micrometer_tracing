@@ -16,7 +16,12 @@ management:
   endpoints:
     web:
       exposure:
-        include: prometheus
+        include: health, prometheus
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+        step: 10s
   metrics:
     distribution:
       percentiles-histogram:
